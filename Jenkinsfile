@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        registry = "bakisnl/bakisgo"
+        registry = "bakisnl/go-cicd"
         GOCACHE = "/tmp"
     }
     stages {
