@@ -13,6 +13,7 @@ pipeline {
                  }
              }
              steps {
+                 sh 'echo ${GOPATH}'
                    // Build the app.
                  sh 'go build'
              }
