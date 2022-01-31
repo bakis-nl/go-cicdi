@@ -3,7 +3,7 @@ pipeline {
     environment {
         registry = "bakisnl/go-cicd"
         GOCACHE = "/tmp"
-        GOPATH = "${WORKSPACE}/go-cicd"
+        GOPATH = "${WORKSPACE}"
     }
     stages {
          stage('Build') {
