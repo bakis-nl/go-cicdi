@@ -11,6 +11,7 @@ pipeline {
              steps {
 
                  sh 'echo ${GOPATH}'
+                 sh 'export GO111MODULE=auto'
                  sh 'go env'
                  sh 'go mod init'
                  // Build the app.
