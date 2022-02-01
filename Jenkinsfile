@@ -19,7 +19,7 @@ pipeline {
                 sh 'mkdir -p ${GOPATH}/src/${PNAME}'
                 // Copy all files in our Jenkins workspace to our project directory.
                 sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/${PNAME}'
-                sh 'cd .. & go mod init go-cicd'
+                sh 'cd .. & rm go.mod & go mod init go-cicd'
                 // Build the app.
                 sh 'cd ${WORKSPACE}'
                 sh 'go build'
