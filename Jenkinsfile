@@ -3,7 +3,9 @@ pipeline {
     environment {
         registry = "bakisnl/go-cicd"
         GOCACHE = "/tmp"
+        PNAME = "go-cicd"
     }
+
     stages {
         stage('Build') {
             agent {
@@ -14,10 +16,9 @@ pipeline {
             steps {
                 // Create our project directory.
                 sh 'cd ${GOPATH}/src'
-                sh 'mkdir -p ${GOPATH}/src/go-cicd'
+                sh 'mkdir -p ${GOPATH}/src/${PNAME}'
                 // Copy all files in our Jenkins workspace to our project directory.
-                sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/go-cicd'
-                sh 'go env -w GO111MODULE=auto'
+                sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/${PNAME}'
                 // Build the app.
                 sh 'go build'
             }
@@ -31,9 +32,9 @@ pipeline {
             steps {
                 // Create our project directory.
                 sh 'cd ${GOPATH}/src'
-                sh 'mkdir -p ${GOPATH}/src/go-cicd'
+                sh 'mkdir -p ${GOPATH}/src/${PNAME}'
                 // Copy all files in our Jenkins workspace to our project directory.
-                sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/go-cicd'
+                sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/${PNAME}'
                 // Remove cached test results.
                 sh 'go clean -cache'
                 // Run Unit Tests.
