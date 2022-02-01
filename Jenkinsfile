@@ -10,7 +10,7 @@ pipeline {
              }
              steps {
 
-                 sh 'echo ${GOPATH}'
+                 sh 'export GOPATH = ${WORKSPACE}'
                  sh 'export GO111MODULE=off'
                  sh 'go env'
                  sh 'go mod init'
