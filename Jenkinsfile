@@ -1,10 +1,6 @@
 pipeline {
     agent any
-    environment {
-        registry = "bakisnl/go-cicd"
-        GOCACHE = "/tmp"
-        GOPATH = "${WORKSPACE}"
-    }
+
     stages {
          stage('Build') {
              agent {
