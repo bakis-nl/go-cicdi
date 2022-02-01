@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 FROM golang:alpine AS build-env
 RUN mkdir /go/src/app && apk update && apk add git
 COPY main.go /go/src/app/
